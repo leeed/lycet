@@ -1,0 +1,16 @@
+services:
+  lycet_app:
+    image: lycet
+    container_name: lycet_app
+    restart: unless-stopped
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./data:/var/www/html/data
+    networks:
+      - isipos_shared
+
+networks:
+  isipos_shared:
+    name: isipos_api_default
+    external: true
