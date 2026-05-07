@@ -40,19 +40,19 @@ EXPOSE 8000
 WORKDIR /var/www/html
 
 ENV APP_ENV prod
-ENV APP_SECRET c4136a0540553455b122461ab6923e9d
+ENV APP_SECRET ${APP_SECRET:-60a3af7f388a46114318775f0aa514af}
 ENV WKHTMLTOPDF_PATH wkhtmltopdf
-ENV CLIENT_TOKEN 123456
-ENV SOL_USER 20161515648MODDATOS
-ENV SOL_PASS MODDATOS
+ENV CLIENT_TOKEN ${CLIENT_TOKEN}
+ENV SOL_USER ${SOL_USER}
+ENV SOL_PASS ${SOL_PASS}
 ENV CORS_ALLOW_ORIGIN .
-ENV FE_URL https://e-beta.sunat.gob.pe/ol-ti-itcpfegem-beta/billService
-ENV RE_URL https://e-beta.sunat.gob.pe/ol-ti-itemision-otroscpe-gem-beta/billService
-ENV GUIA_URL https://e-beta.sunat.gob.pe/ol-ti-itemision-guia-gem-beta/billService
-ENV AUTH_URL https://gre-test.nubefact.com/v1
-ENV API_URL https://gre-test.nubefact.com/v1
-ENV CLIENT_ID test-85e5b0ae-255c-4891-a595-0b98c65c9854
-ENV CLIENT_SECRET test-Hty/M6QshYvPgItX2P0+Kw==
+ENV FE_URL ${FE_URL:-https://e-beta.sunat.gob.pe/ol-ti-itcpfegem-beta/billService}
+ENV RE_URL ${RE_URL:-https://e-beta.sunat.gob.pe/ol-ti-itemision-otroscpe-gem-beta/billService}
+ENV GUIA_URL ${GUIA_URL:-https://e-beta.sunat.gob.pe/ol-ti-itemision-guia-gem-beta/billService}
+ENV AUTH_URL ${AUTH_URL:-https://gre-test.nubefact.com/v1}
+ENV API_URL ${API_URL:-https://gre-test.nubefact.com/v1}
+ENV CLIENT_ID ${CLIENT_ID}
+ENV CLIENT_SECRET ${CLIENT_SECRET}
 ENV TRUSTED_PROXIES="127.0.0.1,REMOTE_ADDR"
 
 ARG PHP_EXT_DIR=/usr/local/lib/php/extensions/no-debug-non-zts-20210902

@@ -1,16 +1,25 @@
 services:
   lycet_app:
-    image: lycet
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: lycet_app
     restart: unless-stopped
+    env_file:
+      - .env
     ports:
-      - "8002:8000"
+      - "${LYCET_PORT:-8002}:8000"
     volumes:
       - ./data:/var/www/html/data
+    healthcheck:
+      test: ["CMD", "php", "bin/console", "about"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     networks:
       - isipos_shared
 
 networks:
   isipos_shared:
-    name: isipos_api_default
+    name: ${SHARED_NETWORK:-isipos_api_default}
     external: true
