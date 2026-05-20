@@ -21,5 +21,5 @@ services:
 
 networks:
   isipos_shared:
-    name: ${SHARED_NETWORK:-isipos_api_default}
+    name: ${SHARED_NETWORK:-isipos_network}
     external: true
